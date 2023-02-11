@@ -1,0 +1,46 @@
+<div class='body-blog'>
+  <div class='row'>
+    <div class='column'>
+      <div class='card blogCard'>
+        <div class='addblog-header'>
+          <h2>Add a Blog</h2>
+        </div>
+        <div class='row'>
+          <form class='blogpost col s12'>
+            <div class='submit-blog'>
+              <div class='row'>
+                <div class='input-field col s12'>
+                  <input
+                    class='new-blog-title'
+                    id='input_text'
+                    type='text'
+                    data-length='10'
+                  />
+                  <label for='input_text'>Enter Blog Title</label>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='input-field col s12'>
+                  <textarea
+                    id='textarea2'
+                    class='materialize-textarea new-blog-text'
+                    data-length='250'
+                  ></textarea>
+                  <label for='textarea2'>Enter Blog text</label>
+                </div>
+              </div>
+              <br />
+              <button
+                type='submit'
+                class='waves-effect waves-light btn btnColor'
+                id='blog-btn'
+              >Submit Blog</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src='/js/blogpost.js'></script>

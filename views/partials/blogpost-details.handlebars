@@ -1,0 +1,31 @@
+<div class='row mb-4 project card'>
+  <div class='col-md-5'>
+    <button class='btn delete-blog grey' data-delete-blog-id='{{id}}'>Delete
+      Blog</button>
+    <h3 class='blog-title'>{{name}}</h3>
+    <p class='blog-user'>Blog by:
+      {{user.name}}
+      on
+      {{format_date date_created}}.
+    </p>
+    <div class='col-md-7'>
+      <p class='blog-text'>
+        {{content}}
+      </p>
+    </div>
+    <form class='form new-comment-form' data-blog-id='{{id}}'>
+      <div class='form-group comment-form'>
+        <label for='comment-text'>Comment:</label>
+        <textarea class='form-input' name='comment-text'></textarea>
+        <button
+          type='submit'
+          class='addComment btn-floating btn-small waves-effect waves-light btnColor'
+          data-blog-id='{{id}}'
+        >+</button>
+      </div>
+    </form>
+    {{#each comments as |comment|}}
+      {{> comment-details comment}}
+      {{/each}}
+  </div>
+</div>

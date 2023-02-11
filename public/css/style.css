@@ -1,15 +1,10 @@
-header, .project:not(:last-child) {
-  border-bottom: 1px solid #ccc;
+h1:not(:last-child) {
+  /* border-bottom: 1px solid #ccc; */
+  color: #26a69a;
 }
 
-.no-button {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  color: #1b89bc;
-  text-decoration: none;
-  font-size: 100%;
+.title {
+  color: #26a69a;
 }
 
 .no-button:hover {
@@ -17,8 +12,12 @@ header, .project:not(:last-child) {
   text-decoration: underline;
 }
 
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
+.page-content {
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navbar {
+  background-color: #26a69a
 }

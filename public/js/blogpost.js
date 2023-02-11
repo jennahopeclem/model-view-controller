@@ -3,12 +3,8 @@ const addBlog = async (event) => {
 
   console.log('adding blog post');
 
-  const newBlogName = document
-    .querySelector('.new-blog-title')
-    .ariaValueMax.trim();
-  const newBlogText = document
-    .querySelector('.new-blog-text')
-    .ariaValueMax.trim();
+  const newBlogName = document.querySelector('.new-blog-title').value.trim();
+  const newBlogText = document.querySelector('.new-blog-text').value.trim();
 
   console.log(newBlogName, newBlogText);
 
@@ -18,20 +14,24 @@ const addBlog = async (event) => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        name: newBlogName,
-        text: newBlogText,
+        title: newBlogName,
+        content: newBlogText,
       }),
     });
 
     console.log('RES', response);
 
     if (response.ok) {
-      document.location.replace * '/blogpost';
+      document.location.replace('/');
     } else {
+      if (response.code === 403) {
+        document.location.replace('/login');
+        return;
+      }
       console.log(response.statusText);
       alert(response.statusText);
     }
   }
 };
 
-document.querySelector('#blog-btn').addEventListener('click', addBlog);
+document.querySelector('.blogpost').addEventListener('submit', addBlog);

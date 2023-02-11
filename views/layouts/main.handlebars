@@ -2,43 +2,52 @@
 
   <head>
     <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <title>Tech Blog</title>
-    <link rel='stylesheet' href='/public/css/jass.css' />
+    <link
+      rel='stylesheet'
+      href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css'
+    />
+    <link
+      href='https://fonts.googleapis.com/icon?family=Material+Icons'
+      rel='stylesheet'
+    />
     <link rel='stylesheet' href='/css/style.css' />
+    <title class="title">Tech Blog</title>
   </head>
 
   <body>
-    <div class='flex-column justify-space-around'>
-      <header class='display-flex justify-space-between align-center p-2'>
-        <h1>
-          <span role='img' aria-label='money'>💸</span>
-          <a href='/'>Fund My Project!</a>
-        </h1>
-        <nav>
-          <!-- Conditionally render login or logout links -->
-          {{#if logged_in}}
-            <a href='/profile'>profile</a>
-            |
-            <button class='no-button' id='logout'>logout</button>
-          {{else}}
-            <a href='/login'>login</a>
-          {{/if}}
-        </nav>
-      </header>
-      <main class='container container-fluid mt-5'>
-        <!-- Render the sub layout -->
-        {{{body}}}
-      </main>
-      <footer>
-
-      </footer>
+    <div class='headerobjectswrapper'>
+      <a href='/'>
+        <h1 class='header'>Tech Blog</h1>
+      </a>
+      <h4 class='todaysDate'>{{todays_date}}</h4>
     </div>
 
-    <!-- Render script for logged in users only -->
-    {{#if logged_in}}
-      <script src='/js/logout.js'></script>
-    {{/if}}
+    <nav class='navbar'>
+      {{#if logged_in}}
+        <a href='/' class='btn-flat'>Home</a>
+        <a href='/blog' class='btn-flat'>Blogs</a>
+        {{!-- <a href='' class='btn-flat'></a> --}}
+        <a href='/logout' class='btn-flat' id='logout'>Logout</a>
+      {{else}}
+        <a href='/' class='btn-flat'>Home</a>
+        <a href='/login' class='btn-flat'>Login</a>
+        <a href='/signup' class='btn-flat'>Sign up</a>
+      {{/if}}
+    </nav>
+    <main>
+
+      {{{body}}}
+
+    </main>
   </body>
+
+  <script
+    src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js'
+  ></script>
+  <script
+    src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'
+  ></script>
 
 </html>

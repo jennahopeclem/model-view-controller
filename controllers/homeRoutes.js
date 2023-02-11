@@ -10,15 +10,28 @@ router.get('/', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['first_name', 'last_name'],
+          attributes: ['name'],
+        },
+        {
+          model: Comment,
+          attributes: ['id', 'comment', 'date_created'],
+          include: [
+            {
+              model: User,
+              attributes: ['name'],
+            },
+          ],
         },
       ],
     });
 
-    const blog = blogData.map((blog) => blog.get({ plain: true }));
-
+    const blogs = blogData.map((blog) => blog.get({ plain: true }));
+    console.log({
+      blogs,
+      logged_in: req.session.logged_in,
+    });
     res.render('homepage', {
-      blog,
+      blogs,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -46,7 +59,7 @@ router.get('/blog', withAuth, async (req, res) => {
         },
         {
           model: User,
-          attributes: ['first_name', 'last_name', 'id'],
+          attributes: ['name', 'id'],
         },
       ],
     });
@@ -64,26 +77,26 @@ router.get('/blog', withAuth, async (req, res) => {
   }
 });
 
-router.get("/signup", async (req, res) => {
+router.get('/signup', async (req, res) => {
   console.log(`GET /login`);
-  res.render("signup");
+  res.render('signup');
 });
 
-router.get("/login", async (req, res) => {
+router.get('/login', async (req, res) => {
   console.log(`GET /login`);
   if (req.session.logged_in) {
-    res.redirect("/");
+    res.redirect('/');
     return;
   }
 
-  res.render("login");
+  res.render('login');
 });
 
-router.get("/logout", async (req, res) => {
+router.get('/logout', async (req, res) => {
   console.log(`GET /logout`);
   if (req.session.logged_in) {
     req.session.destroy(() => {
-      res.redirect("/");
+      res.redirect('/');
       return;
     });
   } else {

@@ -8,9 +8,9 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 router.post('/', withAuth, async (req, res) => {
+  console.log('Hi');
   try {
     const blogFormat = {
-      username: req.body.username,
       title: req.body.title,
       content: req.body.content,
       user_id: req.session.user_id,
@@ -20,7 +20,8 @@ router.post('/', withAuth, async (req, res) => {
 
     res.status(200).json(newBlog);
   } catch (err) {
-    res.status(400).json(err);
+    console.log(err);
+    res.sendStatus(400);
   }
 });
 

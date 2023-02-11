@@ -1,14 +1,28 @@
-<div class="text-center">
-  <h2>{{name}}</h2>
-  <p>{{{get_emoji}}}</p>
-  <p>{{description}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
-  <p>
-    <span for="img" aria-label="money">💲</span>
-    <span class="dollar-amount">{{format_amount needed_funding}}</span>
-    needed
-  </p>
-  <p>
-    <button class="btn btn-primary">Fund this Project!</button>
-  </p>
+<div class="body-blog">
+  <div class="row">
+    <div class="leftcolumn">
+      <div class="blog-container">
+        {{#each blogpost as |blog|}}
+        {{blog-details}}
+
+        <div class="comments-container">
+          {{#each blog.comments as |comment|}}
+          {{> comment-details }}
+          {{/each}}
+        </div>
+
+        {{/each}}
+      </div>
+    </div>
+    <div class="rightcolumn">
+      <div class="card addBlogCard">
+        <h3>Add New Blog:</h3>
+        <a href="/blog" class="btn-floating btn-large waves-effect waves-light btnColor"><i
+            class="material-icons">+</i></a>
+      </div>
+    </div>
+  </div>
 </div>
+
+<script src="/js/comment.js"></script>
+<script src="/js/deleteBlog.js"></script>

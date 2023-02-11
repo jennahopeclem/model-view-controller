@@ -3,8 +3,8 @@ const addBlog = async (event) => {
 
   console.log('adding blog');
 
-  const newBlogName = document.querySelector('.new-entry-title').value.trim();
-  const newBlogText = document.querySelector('.new-entry-text').value.trim();
+  const newBlogName = document.querySelector('.new-blog-title').value.trim();
+  const newBlogText = document.querySelector('.new-blog-text').value.trim();
 
   console.log(newBlogName, newBlogText);
 
@@ -30,4 +30,4 @@ const addBlog = async (event) => {
   }
 };
 
-document.querySelector('#entry-btn').addEventListener('click', addBlog);
+document.querySelector('#blog-btn').addEventListener('click', addBlog);
