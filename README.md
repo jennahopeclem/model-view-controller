@@ -22,4 +22,4 @@ As a user, you will enter the site and be prompted with a message "Leave a blog 
 
 Once signed up, the user will be logged in and have the ability to create a blog post, leave comments, and delete their owned blog posts and comments.
 
-![demo] (/Users/jennah.clementi/Desktop/Homework/tech-blog/public/Tech Blog.gif) 
+(![Tech Blog](https://user-images.githubusercontent.com/117767518/218594045-ecca20a6-f747-4d1c-baa7-11de607983c9.gif)
